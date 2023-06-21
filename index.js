@@ -24,4 +24,10 @@ inquirer
             name: 'shapeColor',
             message: "Input shape color - enter color keyword or a hexadecimal number",
         },
-    ]);
+    ])
+    .then((answers) => {
+        logoCreator.createLogo(answers);
+    })
+    .catch((error) => {
+        console.error('Error has occurred:', error);
+    });
