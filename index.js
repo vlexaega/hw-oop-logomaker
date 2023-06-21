@@ -5,12 +5,12 @@ inquirer
     .prompt([
         {
             type: 'input',
-            name: 'text',
+            name: 'logoText',
             message: "Enter the characters of your logo",
         },
         {
             type: 'input',
-            name: 'textColor',
+            name: 'logoTextColor',
             message: "Input text color - enter color keyword or a hexadecimal number",
         },
         {
@@ -26,7 +26,14 @@ inquirer
         },
     ])
     .then((answers) => {
-        logoCreator.createLogo(answers);
+        logoCreator.createLogo(answers)
+            .then((svgCode) => {
+                fs.writeFileSync('logo.svg', svgCode);
+                console.log('Your logo has been generated!');
+            })
+            .catch((error) => {
+                console.error('An error has occurred while creating your logo:', error)
+            });
     })
     .catch((error) => {
         console.error('Error has occurred:', error);
