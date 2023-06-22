@@ -1,6 +1,6 @@
 const fs = require ('fs');
 const inquirer = require ('inquirer');
-const logoCreator = require ('./utils/logoCreator');
+const logoCreator = require ('./lib/logoCreator');
 
 inquirer
     .prompt([
