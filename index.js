@@ -30,7 +30,7 @@ inquirer
         logoCreator.createLogo(answers)
             .then((svgCode) => {
                 fs.writeFileSync('logo.svg', svgCode);
-                console.log('Your logo has been generated!');
+                console.log('Generated logo.svg');
             })
             .catch((error) => {
                 console.error('An error has occurred while creating your logo:', error)
